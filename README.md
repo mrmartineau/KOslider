@@ -1,21 +1,36 @@
-# KOslider [beta]
-## Simple jQuery carousel plugin using CSS3 transitions
+# KOslider
+**KOslider** is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation.
 
-###Example usage on an HTML element:
+## Usage
+Include **trak.js** in your JavaScript bundle or add it to your HTML page like this:
 
 ```html
-data-koslider='{"dots":"true","arrows":"true","keys":"true","uiPosition":"above","debug":"true"}'
+<script type='application/javascript' src='/path/to/trak.js'></script>
 ```
 
-Can also be called using standard jQuery syntax, for example:
+There are two ways to use **KOslider**: the `data-koslider` attribute or with the traditional jQuery plugin call `$('.element').KOslider()`.
+
+#### Example usage on an HTML element:
+```html
+<div data-koslider='{"dots":"true","arrows":"true","keys":"true","uiPosition":"above","debug":"true"}'>
+```
+
+All options are defined using JSON. Please note that the initial opening quote on the `data-koslider` attr has a single quote. This means we can use double quotes within the options object.
+
+#### KOslider can also be called using standard jQuery syntax:
 ```js
-$('.slider').KOslider({
-	keys : true,
-	uiPosition : "below",
-	customPrevClass : "icon-arrow-previous",
-	customNextClass : "icon-arrow-next",
-	debug : true,
-	itemWidth : "200px"
+// Doc ready
+$(function(){
+
+	$('.slider').KOslider({
+		keys : true,
+		uiPosition : "below",
+		customPrevClass : "icon-arrow-previous",
+		customNextClass : "icon-arrow-next",
+		debug : true,
+		itemWidth : "200px"
+	});
+
 });
 ```
 
@@ -42,3 +57,30 @@ $('.slider').KOslider({
 "callbacks"       : undefined              [object]  Add custom callbacks
 "equaliseEl"      : undefined              [string]  Selector used to calculate equalised heights
 ```
+
+## Markup
+Wrap your existing markup with the element that has  attr
+
+```html
+<div data-koslider='{"dots":"true","arrows":"true","keys":"true","uiPosition":"above","debug":"true"}'>
+	<ul class="slider clearfix">
+		<li class="slide"></li>
+		<li class="slide"></li>
+		<li class="slide"></li>
+	</ul>
+</div>
+
+<!-- or -->
+
+<div class="KOsliderContainer">
+	<ul class="slider clearfix">
+		<li class="slide"></li>
+		<li class="slide"></li>
+		<li class="slide"></li>
+	</ul>
+</div>
+```
+
+<!-- TODO: use KOslider and Kickoff naming scheme for all classes and styles. -->
+
+
