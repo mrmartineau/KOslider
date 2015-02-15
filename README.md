@@ -40,8 +40,8 @@ $(function(){
 "dots"            : true,                  [boolean] display ••••o• pagination (boolean)
 "dotsClick"       : false                  [boolean] enable clickable dots
 "arrows"          : true,                  [boolean] display prev/next arrows (boolean)
-"sliderEl"        : ".slider",             [string]  slides container selector
-"slide"           : ".slide",              [string]  slidable items selector
+"sliderEl"        : ".KOslider",           [string]  slides container selector
+"slide"           : ".KOslider-slide",     [string]  slidable items selector
 "uiPosition"      : "above",               [string]  Options: above or below
 "customPrevClass" : "icon-arrow-previous", [string]  Classname for prev button icon
 "customNextClass" : "icon-arrow-next"      [string]  Classname for next button icon
@@ -81,6 +81,10 @@ Wrap your existing markup with the element that has  attr
 </div>
 ```
 
-<!-- TODO: use KOslider and Kickoff naming scheme for all classes and styles. -->
+## Assumptions
+This plugin assumes a few things so that it works properly:
+
+1. That you use some js to modify classes on the `<html>` element to tell if js is available. It uses the Modernizr `.no-js` / `.js` example. This is done so that the slider can be styled well when js is unavailable. See our demo for an example of this without using Modernizr.
+2. That you want resize events debounced. Included is a small script that allows resize events to be made more effecient.
 
 
