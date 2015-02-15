@@ -37,12 +37,12 @@
 			_.el      = el; // .KOsliderContainer
 			_.slider  = el.find(_.options.sliderEl);
 			_.slide   = _.slider.find(_.options.slide);
-			if (_.options.debug) { console.log('_.options', _.options, 'options', options); }
+			if (_.options.debug) { console.log('KOslider :: options', _.options, 'options', options); }
 
 			// If fewer than 2 children do not setup KOslider
 			if ( _.slide.length < 2) {
 				el.addClass(_.options.inactiveClass);
-				if (_.options.debug) { console.log('not enough to make a slider', options); }
+				if (_.options.debug) { console.log('KOslider :: not enough elements to make a slider', options); }
 				return;
 			}
 
@@ -103,11 +103,11 @@
 			} else if (_.leftOffset < _.max || -(x * _.itemWidth) < _.max) {
 				_.leftOffset = _.max;
 				_.reachedEnd = true;
-				if (_.options.debug) { console.log('_.reachedEnd = true'); }
+				if (_.options.debug) { console.log('KOslider :: reachedEnd = true'); }
 			} else {
 				_.leftOffset = -(x * _.itemWidth);
 				_.reachedEnd = false;
-				if (_.options.debug) { console.log('_.reachedEnd = false'); }
+				if (_.options.debug) { console.log('KOslider :: reachedEnd = false'); }
 			}
 
 			_.index = x;
@@ -117,7 +117,7 @@
 			_.slider.css('transform', 'translateX(' + _.leftOffset + 'px)');
 
 			if (_.options.debug) {
-				console.log('_.goto() :: \n\tx', x, '\n\tleftOffset:', _.leftOffset, '\n\tindex', _.index, '\n\titemWidth:', _.itemWidth, '\n\tmove amount:', _.leftOffset / _.index, '\n\tshould move amount:', _.itemWidth);
+				console.log('KOslider :: _.goto() :: \n\tx', x, '\n\tleftOffset:', _.leftOffset, '\n\tindex', _.index, '\n\titemWidth:', _.itemWidth, '\n\tmove amount:', _.leftOffset / _.index, '\n\tshould move amount:', _.itemWidth);
 			}
 
 			_.navState();
@@ -140,7 +140,7 @@
 				return;
 			}
 			if (_.options.debug) {
-				console.log('next() :: \n\t_.index', _.index, '\n\tmove to:', _.leftOffset - _.itemWidth, '\n\tmoveTo', moveTo);
+				console.log('KOslider :: next() :: \n\t_.index', _.index, '\n\tmove to:', _.leftOffset - _.itemWidth, '\n\tmoveTo', moveTo);
 			}
 
 			_.goto(moveTo);
@@ -158,7 +158,7 @@
 				return;
 			}
 			if (_.options.debug) {
-				console.log('prev() :: \n\t_.index', _.index, '\n\tmove to:', _.leftOffset + _.itemWidth, '\n\tmoveTo', moveTo);
+				console.log('KOslider :: prev() :: \n\t_.index', _.index, '\n\tmove to:', _.leftOffset + _.itemWidth, '\n\tmoveTo', moveTo);
 			}
 
 			_.goto(moveTo);
@@ -238,7 +238,7 @@
 			}
 
 			if (_.options.debug) {
-				console.log('_.setSize() :: \n\t_.max:', _.max , '\n\t_.min:', _.min, '\n\tleftOffset:', _.leftOffset, '\n\tindex', _.index, '\n\titemWidth:', _.itemWidth, '\n\t_.slide.length', _.slide.length, '\n\t$sliderWidth', $sliderWidth, '\n\t_.el.width()', _.el.width(), '_.el.find(\'.KOslider\').width()\')', _.el.find('.KOslider').width());
+				console.log('KOslider :: _.setSize() :: \n\t_.max:', _.max , '\n\t_.min:', _.min, '\n\tleftOffset:', _.leftOffset, '\n\tindex', _.index, '\n\titemWidth:', _.itemWidth, '\n\t_.slide.length', _.slide.length, '\n\t$sliderWidth', $sliderWidth, '\n\t_.el.width()', _.el.width(), '_.el.find(\'.KOslider\').width()\')', _.el.find('.KOslider').width());
 			}
 		};
 
@@ -272,7 +272,7 @@
 				}
 			});
 			_.slider.find($equaliseEl).css('height', highestBox);
-			if (_.options.debug) { console.log('_.equalizeHeights() :: \n\thighestBox:', highestBox); }
+			if (_.options.debug) { console.log('KOslider :: _.equalizeHeights() :: \n\thighestBox:', highestBox); }
 		};
 
 
@@ -342,7 +342,7 @@
 		 * If _.options.autoplay = true, slides will autplay
 		 */
 		_.autoplay = function() {
-			if (_.options.debug) { console.log('Autoplay KOslider'); }
+			if (_.options.debug) { console.log('KOslider :: Autoplay KOslider. Are you sure you want this??'); }
 
 			function interval() {
 				var nextPos = _.index < _.count ? _.index + 1 : 0;
@@ -390,7 +390,7 @@
 
 			function touchStartHandler(event) {
 				_.slide.off('touchstart', touchStartHandler);
-				if (_.options.debug) { console.log('touchStartHandler event', event); }
+				if (_.options.debug) { console.log('KOslider :: touchStartHandler event', event); }
 				var touch = event.originalEvent.changedTouches[0];
 
 				// store the start point of the touch.
@@ -416,7 +416,7 @@
 				}
 				// check if the swipe moved enough from its start point to be considered a gesture.
 				if (Math.abs(_swipeStartPoint.x - posX) >= _self.swipeDistance) {
-					if (_.options.debug) { console.debug ("swipe occurred. pixels swiped:", Math.abs(_swipeStartPoint.x - posX)); }
+					if (_.options.debug) { console.debug ("KOslider :: swipe occurred. pixels swiped:", Math.abs(_swipeStartPoint.x - posX)); }
 
 					if (posX > _swipeStartPoint.x) {// right swipe occurred
 						_.prev();
@@ -430,7 +430,7 @@
 			}
 
 			function touchEndHandler () {
-				if (_.options.debug) { console.log('touchEndHandler event', event); }
+				if (_.options.debug) { console.log('KOslider :: touchEndHandler event', event); }
 				// remove event listeners to stop the potential for multiple swipes occuring.
 				reset();
 			}
