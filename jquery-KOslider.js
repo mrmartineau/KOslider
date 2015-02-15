@@ -37,7 +37,7 @@
 			_.el      = el; // .KOsliderContainer
 			_.slider  = el.find(_.options.sliderEl);
 			_.slide   = _.slider.find(_.options.slide);
-			if (_.options.debug) { console.log('KOslider :: options', _.options, 'options', options); }
+			if (_.options.debug) { console.log('KOslider ::\n\tOptions:\n\t\t', _.options); }
 
 			// If fewer than 2 children do not setup KOslider
 			if ( _.slide.length < 2) {
@@ -107,7 +107,6 @@
 			} else {
 				_.leftOffset = -(x * _.itemWidth);
 				_.reachedEnd = false;
-				if (_.options.debug) { console.log('KOslider :: reachedEnd = false'); }
 			}
 
 			_.index = x;
@@ -117,7 +116,7 @@
 			_.slider.css('transform', 'translateX(' + _.leftOffset + 'px)');
 
 			if (_.options.debug) {
-				console.log('KOslider :: _.goto() :: \n\tx', x, '\n\tleftOffset:', _.leftOffset, '\n\tindex', _.index, '\n\titemWidth:', _.itemWidth, '\n\tmove amount:', _.leftOffset / _.index, '\n\tshould move amount:', _.itemWidth);
+				console.log('KOslider ::\n\t_.goto() :: \n\t\tx', x, '\n\t\tleftOffset:', _.leftOffset, '\n\t\tindex', _.index, '\n\t\titemWidth:', _.itemWidth, '\n\t\tmove amount:', _.leftOffset / _.index);
 			}
 
 			_.navState();
@@ -125,7 +124,6 @@
 			if (_.options.callbacks.onChange !== undefined) {
 				eval(_.options.callbacks.onChange);
 			}
-			//_.tracking();
 		};
 
 		/**
@@ -138,9 +136,6 @@
 			} else {
 				moveTo = _.count;
 				return;
-			}
-			if (_.options.debug) {
-				console.log('KOslider :: next() :: \n\t_.index', _.index, '\n\tmove to:', _.leftOffset - _.itemWidth, '\n\tmoveTo', moveTo);
 			}
 
 			_.goto(moveTo);
@@ -156,9 +151,6 @@
 			} else {
 				moveTo = 0;
 				return;
-			}
-			if (_.options.debug) {
-				console.log('KOslider :: prev() :: \n\t_.index', _.index, '\n\tmove to:', _.leftOffset + _.itemWidth, '\n\tmoveTo', moveTo);
 			}
 
 			_.goto(moveTo);
@@ -225,7 +217,6 @@
 				if (_.el.find('.KOslider-UI').length === 0) {
 					_.createUI();
 					_.tooThin = false;
-					if (_.options.debug) { console.log('Create UI'); }
 				}
 			} else {
 				_.el.find('.KOslider-UI').remove();
@@ -234,11 +225,10 @@
 					_.leftOffset = 0;
 					_.goto(0);
 				}
-				if (_.options.debug) { console.log('remove the UI'); }
 			}
 
 			if (_.options.debug) {
-				console.log('KOslider :: _.setSize() :: \n\t_.max:', _.max , '\n\t_.min:', _.min, '\n\tleftOffset:', _.leftOffset, '\n\tindex', _.index, '\n\titemWidth:', _.itemWidth, '\n\t_.slide.length', _.slide.length, '\n\t$sliderWidth', $sliderWidth, '\n\t_.el.width()', _.el.width(), '_.el.find(\'.KOslider\').width()\')', _.el.find('.KOslider').width());
+				console.log('KOslider ::\n\t_.setSize() :: \n\t\t_.max:', _.max , '\n\t\t_.min:', _.min, '\n\t\tleftOffset:', _.leftOffset, '\n\t\tindex', _.index, '\n\t\titemWidth:', _.itemWidth, '\n\t\t_.slide.length', _.slide.length, '\n\t\t$sliderWidth', $sliderWidth);
 			}
 		};
 
@@ -272,7 +262,7 @@
 				}
 			});
 			_.slider.find($equaliseEl).css('height', highestBox);
-			if (_.options.debug) { console.log('KOslider :: _.equalizeHeights() :: \n\thighestBox:', highestBox); }
+			if (_.options.debug) { console.log('KOslider ::\n\t_.equalizeHeights() :: \n\t\thighestBox:', highestBox); }
 		};
 
 
