@@ -1,41 +1,7 @@
 /**
- *   KOslider by @mrmartineau *
+ * KOslider by @mrmartineau
  *
- *   Example usage:
-     data-koslider='{"dots":"true","arrows":"true","keys":"true","uiPosition":"above","customPrevClass":"icon-arrow-previous","customNextClass":"icon-arrow-next","debug":"true"}'
- *
- *   Can also be called using standard jQuery syntax, for example:
- *   $('.slider').KOslider({
-				keys : true,
-				uiPosition : "below",
-				customPrevClass : "icon-arrow-previous",
-				customNextClass : "icon-arrow-next",
-				debug : true,
-				itemWidth : "200px",
-				equalHeight : false
-			});
- *
- *   Default options:
-     "keys"            : false,                 [boolean] keyboard shortcuts (boolean)
-     "dots"            : true,                  [boolean] display ••••o• pagination (boolean)
-		 "dotsClick"       : false                  [boolean] enable clickable dots
-     "arrows"          : true,                  [boolean] display prev/next arrows (boolean)
-     "sliderEl"        : ".slider",             [string]  slides container selector
-     "slide"           : ".slide",              [string]  slidable items selector
-     "uiPosition"      : "above",               [string]  Options: above or below
-     "customPrevClass" : "icon-arrow-previous", [string]  Classname for prev button icon
-     "customNextClass" : "icon-arrow-next"      [string]  Classname for next button icon
-     "debug"           : false                  [boolean] Show debug info
-     "setHeight"       : "auto"                 [string]  "auto" = Change height of slides according to content; "equal" = equalise height of all slides; "none" = don't adjust height at all
-		 "debug"           : false                  [boolean] Show debug info
-		 "autoplay"        : false                  [boolean] autoplay the slider
-		 "autoplayInterval": 4000                   [integer] Change the autoplay speed
-		 "swipe"           : false                  [boolean] enable swipe for touch
-		 "itemWidth"       : undefined              [string]  define an element width instead of calculating it
-		 "inactiveClass"   : "slider--inactive"     [string]
-		 "activeClass"     : "slider--active"       [string]
-     "callbacks"       : undefined              [object]  Add custom callbacks
-     "equaliseEl"      : undefined              [string]  Selector used to calculate equalised heights
+ * See https://github.com/mrmartineau/KOslider for documentation and demos
  */
 
 (function($, f) {
@@ -49,8 +15,8 @@
 			dots             : true,
 			dotsClick        : false,
 			arrows           : true,
-			sliderEl         : '.slider',
-			slide            : '.slide',
+			sliderEl         : '.KOslider',
+			slide            : '.KOslider-slide',
 			uiPosition       : 'before',
 			customPrevClass  : 'icon-arrow-previous',
 			customNextClass  : 'icon-arrow-next',
@@ -60,8 +26,8 @@
 			autoplayInterval : 4000,
 			swipe            : false,
 			itemWidth        : undefined,
-			inactiveClass    : 'slider--inactive',
-			activeClass      : 'slider--active',
+			inactiveClass    : 'KOslider--inactive',
+			activeClass      : 'KOslider--active',
 			callbacks        : {}
 		};
 
@@ -96,7 +62,7 @@
 			// Resize: Check and change sizes if needed
 			$(window).resize($.proxy(_.getWidth.debounce(500), this)).trigger('resize');
 
-			_.el.on('click', '.slider-btn', function(event) {
+			_.el.on('click', '.KOslider-UI-btn', function(event) {
 				event.preventDefault();
 				var fn = $(this).data('fn'); // Choose next or prev
 				_[fn]();
@@ -120,7 +86,7 @@
 
 		$.fn.KOslider.destroy = function() {
 			_.slider.css('width', 'auto').data({KOslider: undefined, key: undefined});
-			_.slider.find('.sliderUI').remove();
+			_.slider.find('.KOslider-UI').remove();
 			_.slide.css('width', 'auto');
 		};
 
@@ -203,21 +169,28 @@
 		 * Change nav state
 		 */
 		_.navState = function() {
+			var atStart;
+			var atEnd;
+
 			// Enable/Disable the prev btn
 			if (_.index === 0) {
-				_.el.find('.slider-btn.previous').prop('disabled', true);
+				atStart = true;
 			} else {
-				_.el.find('.slider-btn.previous').prop('disabled', false);
-			}
-			// Enable/Disable the next btn
-			if (_.index === _.count || _.reachedEnd) {
-				_.el.find('.slider-btn.next').prop('disabled', true);
-			} else {
-				_.el.find('.slider-btn.next').prop('disabled', false);
+				atStart = false;
 			}
 
+			// Enable/Disable the next btn.
+			if (_.index === _.count || _.reachedEnd) {
+				atEnd = true;
+			} else {
+				atEnd = false;
+			}
+
+			_.el.find('.KOslider-UI-btn--previous').prop('disabled', atStart);
+			_.el.find('.KOslider-UI-btn--next').prop('disabled', atEnd);
+
 			// Set first dot to be active
-			_.el.find('.sliderUI-dot').eq(_.index).addClass('is-active').siblings().removeClass('is-active');
+			_.el.find('.KOslider-UI-dot').eq(_.index).addClass('is-active').siblings().removeClass('is-active');
 		};
 
 		/**
@@ -249,13 +222,13 @@
 			// Create UI if there is enough space to do so
 			if ($sliderWidth > $containerWidth) {
 				// Create UI - Dots and next/prev buttons
-				if (_.el.find('.sliderUI').length === 0) {
+				if (_.el.find('.KOslider-UI').length === 0) {
 					_.createUI();
 					_.tooThin = false;
 					if (_.options.debug) { console.log('Create UI'); }
 				}
 			} else {
-				_.el.find('.sliderUI').remove();
+				_.el.find('.KOslider-UI').remove();
 				_.tooThin = true;
 				if (_.leftOffset !== 0) {
 					_.leftOffset = 0;
@@ -265,7 +238,7 @@
 			}
 
 			if (_.options.debug) {
-				console.log('_.setSize() :: \n\t_.max:', _.max , '\n\t_.min:', _.min, '\n\tleftOffset:', _.leftOffset, '\n\tindex', _.index, '\n\titemWidth:', _.itemWidth, '\n\t_.slide.length', _.slide.length, '\n\t$sliderWidth', $sliderWidth, '\n\t_.el.width()', _.el.width(), '_.el.find(\'.slider\').width()\')', _.el.find('.slider').width());
+				console.log('_.setSize() :: \n\t_.max:', _.max , '\n\t_.min:', _.min, '\n\tleftOffset:', _.leftOffset, '\n\tindex', _.index, '\n\titemWidth:', _.itemWidth, '\n\t_.slide.length', _.slide.length, '\n\t$sliderWidth', $sliderWidth, '\n\t_.el.width()', _.el.width(), '_.el.find(\'.KOslider\').width()\')', _.el.find('.KOslider').width());
 			}
 		};
 
@@ -309,24 +282,22 @@
 		 * Arrows : will show if arrows = true
 		 */
 		_.createUI = function() {
-			html = '<div class="sliderUI sliderUI--' + _.options.uiPosition + ' clearfix"><div class="sliderUI-pagers">';
+			html = '<div class="KOslider-UI KOslider-UI--' + _.options.uiPosition + ' clearfix"><div class="KOslider-UI-pagers">';
 
 			if (_.options.arrows) {
-				html += '<button class="slider-btn previous ' + _.options.customPrevClass + '" data-fn="prev" disabled>Previous</button>';
-				// html += '<a href="#" class="slider-btn next ' + _.options.customNextClass + '" data-fn="next">Next</a>';
+				html += '<button class="KOslider-UI-btn KOslider-UI-btn--previous ' + _.options.customPrevClass + '" data-fn="prev" disabled>Previous</button>';
 			}
 
 			if (_.options.dots) {
-				html += '<div class="sliderUI-dots">';
+				html += '<div class="KOslider-UI-dots">';
 				$.each(_.slide, function() {
-					html += '<span class="sliderUI-dot"></span>';
+					html += '<span class="KOslider-UI-dot"></span>';
 				});
 				html += '</div>';
 			}
 
 			if (_.options.arrows) {
-				html += '<button class="slider-btn next ' + _.options.customNextClass + '" data-fn="next">Next</button>';
-				// html += '<a href="#" class="slider-btn next ' + _.options.customNextClass + '" data-fn="next">Next</a>';
+				html += '<button class="KOslider-UI-btn KOslider-UI-btn--next ' + _.options.customNextClass + '" data-fn="next">Next</button>';
 			}
 
 			html += '</div></div>';
@@ -336,7 +307,7 @@
 			} if (_.options.uiPosition == 'below') {
 				_.el.append(html);
 			}
-			_.el.find('.sliderUI-dot').eq(0).addClass('is-active');
+			_.el.find('.KOslider-UI-dot').eq(0).addClass('is-active');
 		};
 
 
@@ -359,7 +330,7 @@
 		 * If dotsClick === true, allow the dots to be clicked
 		 */
 		_.dotsClick = function() {
-			_.el.on('click', '.sliderUI-dot', function(event) {
+			_.el.on('click', '.KOslider-UI-dot', function(event) {
 				event.preventDefault();
 				var target = $(this).index();
 				if (_.options.debug) { console.log('target', target); }
@@ -448,9 +419,9 @@
 					if (_.options.debug) { console.debug ("swipe occurred. pixels swiped:", Math.abs(_swipeStartPoint.x - posX)); }
 
 					if (posX > _swipeStartPoint.x) {// right swipe occurred
-							_.prev();
+						_.prev();
 					} else { // left swipe occurred
-							_.next();
+						_.next();
 					}
 
 					// remove event listeners to stop the potential for multiple swipes occuring.
@@ -517,5 +488,5 @@
 
 	$('[data-koslider]').KOslider();
 
-	KOslider.version = "0.4.0";
+	KOslider.version = "0.5.0";
 })(jQuery, false);

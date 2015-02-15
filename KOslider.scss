@@ -10,23 +10,24 @@ $color-dot: #444;
 	overflow: hidden;
 }
 
-.js .slider {
+.js .KOslider {
 	position: relative;
 	overflow: hidden;
 	transition: transform 400ms cubic-bezier(0.645, 0.045, 0.355, 1.000), height 400ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
-
-	li {
-		float: left;
-		position: relative;
-		z-index: 100;
-	}
 }
 
-.no-js .slider {
-	li {
+.KOslider-slide {
+
+	.no-js & {
 		margin-bottom: 25px;
 		padding-bottom: 30px;
 		border-bottom: 2px solid #fff;
+	}
+
+	.js & {
+		float: left;
+		position: relative;
+		z-index: 100;
 	}
 }
 
@@ -34,26 +35,26 @@ $color-dot: #444;
 /*
    Pagination wrapper
    ========================================================================== */
-.js .sliderUI {
+.js .KOslider-UI {
 	min-height: 38px;
 	padding: 10px 0;
 
-	&.sliderUI--above {
+	&.KOslider-UI--above {
 		border-bottom: 2px solid #fff;
 		margin-bottom: 10px;
 	}
-	&.sliderUI--below {
+	&.KOslider-UI--below {
 		border-top: 2px solid #fff;
 		margin-top: 10px;
 		text-align: center;
 	}
-	&.sliderUI--over {
+	&.KOslider-UI--over {
 		margin-top: 10px;
 		text-align: center;
 	}
 }
 
-.no-js .sliderUI {
+.no-js .KOslider-UI {
 	display: none;
 }
 
@@ -61,14 +62,14 @@ $color-dot: #444;
 /*
    Dots
    ========================================================================== */
-.sliderUI-dots {
+.KOslider-UI-dots {
 	display: inline-block;
 	line-height: 30px;
 	height: 28px;
 	margin: 0 5px;
 }
 
-.sliderUI-dot {
+.KOslider-UI-dot {
 	display: inline-block;
 	width: 10px;
 	height: 10px;
@@ -87,11 +88,10 @@ $color-dot: #444;
 /*
    Pagers
    ========================================================================== */
-.sliderUI-pagers {
+.KOslider-UI-pagers {
 	display: inline-block;
-	// text-align: right;
 }
-.slider-btn {
+.KOslider-UI-btn {
 	overflow: hidden;
 	width: 70px;
 	height: 28px;
@@ -102,7 +102,6 @@ $color-dot: #444;
 	border-radius: 50px;
 
 	&:hover,
-	//&:active,
 	&:focus {
 		background-color: darken($color-btn, 10%);
 		outline: none;
@@ -116,10 +115,10 @@ $color-dot: #444;
 		background-color: transparent;
 	}
 
-	&.previous {
+	&.KOslider-UI-btn--previous {
 		background-position: 8px center;
 	}
-	&.next {
+	&.KOslider-UI-btn--next {
 		background-position: 12px center;
 	}
 }
