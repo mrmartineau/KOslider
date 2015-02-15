@@ -86,7 +86,19 @@ Wrap your existing markup with an element. Add the `data-koslider` attribute if 
 ### Debugging
 **KOslider** has debugging built-in. To use it, just set `debug: true` in the options and it will show various debug messages in your javascript console.
 
+### On-change callback
+You can define an callback when the slides change. Add a callback method to the callbacks object in your options like below:
 
+```js
+$('.slider').KOslider({
+	keys : true,
+	callbacks: {
+		onChange : function() {
+			console.log('slider changed');
+		}
+	}
+});
+```
 
 ## Assumptions
 This plugin assumes a few things so that it works properly:
