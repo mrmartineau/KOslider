@@ -2,10 +2,10 @@
 **KOslider** is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation.
 
 ## Usage
-Include **trak.js** in your JavaScript bundle or add it to your HTML page like this:
+Include **KOslider** in your JavaScript bundle or add it to your HTML page like this:
 
 ```html
-<script type='application/javascript' src='/path/to/trak.js'></script>
+<script type='application/javascript' src='/path/to/jquery-KOslider.js'></script>
 ```
 
 There are two ways to use **KOslider**: the `data-koslider` attribute or with the traditional jQuery plugin call `$('.element').KOslider()`.
