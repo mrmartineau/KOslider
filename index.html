@@ -5,6 +5,12 @@
 	<title>KOslider</title>
 	<link rel="stylesheet" href="http://tmwagency.github.io/kickoff/css/kickoff.css">
 	<link rel="stylesheet" href="dist/KOslider.css">
+	<meta name="viewport" content="width=device-width" />
+	<style>
+		.KOsliderContainer {
+			border: 1px solid #aaa;
+		}
+	</style>
 </head>
 <body>
 	<script>document.body.parentElement.className = document.body.parentElement.className.replace('no-js', 'js');</script>
@@ -13,9 +19,9 @@
 		<h1>KOslider</h1>
 		<h2>Carousel</h2>
 
-		<h4>Example:</h4>
-
-		<div class="KOsliderContainer" data-koslider='{"keys":"true","uiPosition":"below","debug":true,"setHeight":"auto","dotsClick":true,"customNextClass":"nextnext","customPrevClass":"prevprev","equaliseEl":".eq-wrapper"}'>
+		<h3>Simple example:</h3>
+		<p>This example the most common features of a slider: left/right arrow keys to move prev/next; </p>
+		<div class="KOsliderContainer" data-koslider='{"keys":"true","uiPosition":"after","dotsClick":true}'>
 			<ul class="KOslider unstyled clearfix">
 				<li class="KOslider-slide">
 					<div class="eq-wrapper">
@@ -47,6 +53,138 @@
 					<div class="eq-wrapper">
 						<h4>5This is the title</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>6This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<h3>Touch/swipe example:</h3>
+		<p>Just set <code>"swipe":"true"</code> and you're good to go, but will only work if your device supports touch events.</p>
+		<div class="KOsliderContainer" data-koslider='{"swipe":true,"uiPosition":"after","dotsClick":true}'>
+			<ul class="KOslider unstyled clearfix">
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>1This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>2This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>3This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>4This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>5This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>6This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<h3>Fixed-width elements example:</h3>
+		<p>Choose a width and set the 'itemWidth' option, like so: <code>"itemWidth":"300px"</code> and you're good to go.</p>
+		<div class="KOsliderContainer" data-koslider='{"swipe":"true","keys":"true","uiPosition":"after","setHeight":"auto","itemWidth":"300px"}'>
+			<ul class="KOslider unstyled clearfix">
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>1This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>2This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>3This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>4This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>5This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>6This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<h3>Equal heights example:</h3>
+		<p>Just change these two options: <code>"setHeight":"equal"</code> and select an element for <code>"equaliseEl":".eq-wrapper"</code> so that it can calculate the height.</p>
+		<div class="KOsliderContainer" data-koslider='{"uiPosition":"after","dotsClick":true,"setHeight":"equal","equaliseEl":".eq-wrapper"}'>
+			<ul class="KOslider unstyled clearfix">
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>1This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>2This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>3This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>4This is the title</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+					</div>
+				</li>
+				<li class="KOslider-slide">
+					<div class="eq-wrapper">
+						<h4>5This is the title</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
 					</div>
