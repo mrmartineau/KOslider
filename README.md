@@ -37,26 +37,25 @@ $(function(){
 
 #### Default options:
 ```
-"keys"            : false,                 [boolean] keyboard shortcuts (boolean)
-"dots"            : true,                  [boolean] display ••••o• pagination (boolean)
-"dotsClick"       : false                  [boolean] enable clickable dots
-"arrows"          : true,                  [boolean] display prev/next arrows (boolean)
-"sliderEl"        : ".KOslider",           [string]  slides container selector
-"slide"           : ".KOslider-slide",     [string]  slidable items selector
-"customPrevClass" : "icon-arrow-previous", [string]  Classname for prev button icon
-"customNextClass" : "icon-arrow-next"      [string]  Classname for next button icon
-"debug"           : false                  [boolean] Show debug info
+"keys"               : false,                 [boolean] keyboard shortcuts (boolean)
+"dots"               : true,                  [boolean] display ••••o• pagination (boolean)
+"dotsClick"          : false                  [boolean] enable clickable dots
+"arrows"             : true,                  [boolean] display prev/next arrows (boolean)
+"sliderEl"           : ".KOslider",           [string]  slides container selector
+"slide"              : ".KOslider-slide",     [string]  slidable items selector
 "uiPosition"         : "after",               [string]  Options: 'before', 'after' or 'over'
-"setHeight"       : "auto"                 [string]  "auto" = Change height of slides according to content; "equal" = equalise height of all slides; "none" = don't adjust height at all
-"debug"           : false                  [boolean] Show debug info
-"autoplay"        : false                  [boolean] autoplay the slider
-"autoplayInterval": 4000                   [integer] Change the autoplay speed
-"swipe"           : false                  [boolean] enable swipe for touch
-"itemWidth"       : undefined              [string]  define an element width instead of calculating it
-"inactiveClass"   : "KOslider--inactive"   [string]
-"activeClass"     : "KOslider--active"     [string]
-"callbacks"       : undefined              [object]  Add custom callbacks
-"equaliseEl"      : undefined              [string]  Selector used to calculate equalised heights
+"customPrevBtnClass" : undefined              [string]  Classname for prev button icon
+"customNextBtnClass" : undefined              [string]  Classname for next button icon
+"setHeight"          : "auto"                 [string]  "auto" = Change height of slides according to content; "equal" = equalise height of all slides; "none" = don't adjust height at all
+"equaliseEl"         : undefined              [string]  Selector used to calculate equalised heights
+"debug"              : false                  [boolean] Show debug info
+"autoplay"           : false                  [boolean] autoplay the slider
+"autoplayInterval"   : 4000                   [integer] Change the autoplay speed
+"swipe"              : false                  [boolean] enable swipe for touch
+"itemWidth"          : undefined              [string]  define an element width instead of calculating it
+"inactiveClass"      : "KOslider--inactive"   [string]
+"activeClass"        : "KOslider--active"     [string]
+"callbacks"          : undefined              [object]  Add custom callbacks
 ```
 
 ## Markup
@@ -73,7 +72,7 @@ Wrap your existing markup with an element. Add the `data-koslider` attribute if 
 </div>
 
 <!-- or -->
-<!-- Uses traditional jQuery way to call plugin, see above -->
+<!-- Use traditional jQuery way to call plugin, see above -->
 <div class="KOsliderContainer">
 	<ul class="slider clearfix">
 		<li class="slide"></li>
@@ -98,6 +97,38 @@ $('.slider').KOslider({
 		}
 	}
 });
+```
+
+## Styling
+**KOslider** does not try to style everything for you; there are no themes. Only the bare minimum is styled so that you can apply your own styles. Please see the source file for what to style.
+
+```css
+/**
+ * Next / previous buttons
+ */
+.KOslider-UI-btn {
+	/* Styling for both buttons */
+}
+
+.KOslider-UI-btn:hover {
+
+}
+
+.KOslider-UI-btn[disabled] {
+
+}
+
+.KOslider-UI-btn[disabled]:hover {
+
+}
+
+.KOslider-UI-btn--previous {
+
+}
+
+.KOslider-UI-btn--next {
+
+}
 ```
 
 ## Assumptions

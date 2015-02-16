@@ -35,19 +35,21 @@ $color-dot: #444;
 /*
    Pagination wrapper
    ========================================================================== */
-.js .KOslider-UI {
+.KOslider-UI {
 	min-height: 38px;
 	padding: 10px 0;
 
-	&.KOslider-UI--above {
+	&.KOslider-UI--before {
 		border-bottom: 2px solid #fff;
 		margin-bottom: 10px;
 	}
-	&.KOslider-UI--below {
+
+	&.KOslider-UI--after {
 		border-top: 2px solid #fff;
 		margin-top: 10px;
 		text-align: center;
 	}
+
 	&.KOslider-UI--over {
 		margin-top: 10px;
 		text-align: center;
@@ -90,36 +92,5 @@ $color-dot: #444;
    ========================================================================== */
 .KOslider-UI-pagers {
 	display: inline-block;
-}
-.KOslider-UI-btn {
-	overflow: hidden;
-	width: 70px;
-	height: 28px;
-	background-color: $color-btn;
-	text-indent: 150%;
-	display: inline-block;
-	border: none;
-	border-radius: 50px;
-
-	&:hover,
-	&:focus {
-		background-color: darken($color-btn, 10%);
-		outline: none;
-	}
-
-	&[disabled] {
-		opacity: 0.6;
-	}
-
-	&[disabled]:hover {
-		background-color: transparent;
-	}
-
-	&.KOslider-UI-btn--previous {
-		background-position: 8px center;
-	}
-	&.KOslider-UI-btn--next {
-		background-position: 12px center;
-	}
 }
 
