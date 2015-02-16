@@ -43,10 +43,10 @@ $(function(){
 "arrows"          : true,                  [boolean] display prev/next arrows (boolean)
 "sliderEl"        : ".KOslider",           [string]  slides container selector
 "slide"           : ".KOslider-slide",     [string]  slidable items selector
-"uiPosition"      : "above",               [string]  Options: above or below
 "customPrevClass" : "icon-arrow-previous", [string]  Classname for prev button icon
 "customNextClass" : "icon-arrow-next"      [string]  Classname for next button icon
 "debug"           : false                  [boolean] Show debug info
+"uiPosition"         : "after",               [string]  Options: 'before', 'after' or 'over'
 "setHeight"       : "auto"                 [string]  "auto" = Change height of slides according to content; "equal" = equalise height of all slides; "none" = don't adjust height at all
 "debug"           : false                  [boolean] Show debug info
 "autoplay"        : false                  [boolean] autoplay the slider

@@ -11,24 +11,24 @@
 
 		// Set some default options
 		_.options = {
-			keys             : false,
-			dots             : true,
-			dotsClick        : false,
-			arrows           : true,
-			sliderEl         : '.KOslider',
-			slide            : '.KOslider-slide',
-			uiPosition       : 'before',
+			keys               : false,
+			dots               : true,
+			dotsClick          : false,
+			arrows             : true,
+			sliderEl           : '.KOslider',
+			slide              : '.KOslider-slide',
+			uiPosition         : 'before',
 			customPrevClass  : 'icon-arrow-previous',
 			customNextClass  : 'icon-arrow-next',
-			debug            : false,
-			setHeight        : "auto",
-			autoplay         : false,
-			autoplayInterval : 4000,
-			swipe            : false,
-			itemWidth        : undefined,
-			inactiveClass    : 'KOslider--inactive',
-			activeClass      : 'KOslider--active',
-			callbacks        : {}
+			debug              : false,
+			setHeight          : "auto",
+			autoplay           : false,
+			autoplayInterval   : 4000,
+			swipe              : false,
+			itemWidth          : undefined,
+			inactiveClass      : 'KOslider--inactive',
+			activeClass        : 'KOslider--active',
+			callbacks          : {}
 		};
 
 		_.init = function(el, options) {
@@ -275,7 +275,7 @@
 			html = '<div class="KOslider-UI KOslider-UI--' + _.options.uiPosition + ' clearfix"><div class="KOslider-UI-pagers">';
 
 			if (_.options.arrows) {
-				html += '<button class="KOslider-UI-btn KOslider-UI-btn--previous ' + _.options.customPrevClass + '" data-fn="prev" disabled>Previous</button>';
+				html += '<button class="KOslider-UI-btn KOslider-UI-btn--previous ' + _.options.customPrevBtnClass + '" data-fn="prev" disabled>Previous</button>';
 			}
 
 			if (_.options.dots) {
@@ -287,14 +287,14 @@
 			}
 
 			if (_.options.arrows) {
-				html += '<button class="KOslider-UI-btn KOslider-UI-btn--next ' + _.options.customNextClass + '" data-fn="next">Next</button>';
+				html += '<button class="KOslider-UI-btn KOslider-UI-btn--next ' + _.options.customNextBtnClass + '" data-fn="next">Next</button>';
 			}
 
 			html += '</div></div>';
 
-			if (_.options.uiPosition == 'above') {
+			if (_.options.uiPosition == 'before') {
 				_.el.prepend(html);
-			} if (_.options.uiPosition == 'below') {
+			} if (_.options.uiPosition == 'after') {
 				_.el.append(html);
 			}
 			_.el.find('.KOslider-UI-dot').eq(0).addClass('is-active');
