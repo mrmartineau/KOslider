@@ -2,7 +2,8 @@
   "name": "KOslider",
   "title": "KOslider",
   "description": "KOslider is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation",
-  "version": "0.1.0",
+  "main": "dist/KOslider.js",
+  "version": "0.5.0",
   "homepage": "https://github.com/mrmartineau/KOslider",
   "author": {
     "name": "Zander Martineau",
@@ -32,7 +33,13 @@
     "require-dir": "^0.1.0",
     "run-sequence": "^1.0.2"
   },
-  "keywords": [],
+  "keywords": [
+    "jquery",
+    "carousel",
+    "slider",
+    "CSS",
+    "CSS transitions"
+  ],
   "dependencies": {
     "gulp-header": "^1.2.2",
     "gulp-rename": "^1.2.0"
