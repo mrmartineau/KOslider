@@ -1,5 +1,5 @@
 # KOslider
-**KOslider** is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation.
+**KOslider** is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation. It is named KOslider because it was initially used on a project with my [Kickoff](http://tmwagency.github.io/kickoff/) framework and uses the same [CSS class naming scheme](http://tmwagency.github.io/kickoff/learn/css.html#sts=CSS Naming scheme).
 
 ## Usage
 Include **KOslider** in your JavaScript bundle or add it to your HTML page like this:
@@ -15,6 +15,17 @@ All options are defined using JSON. Please note that the initial opening quote o
 
 ```html
 <div data-koslider='{"dots":"true","arrows":"true","keys":"true","uiPosition":"above","debug":"true"}'>
+	<ul class="KOslider unstyled clearfix">
+		<li class="KOslider-slide">
+			<h4>1This is the title</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+		</li>
+		<li class="KOslider-slide">
+			<h4>2This is the title</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, eveniet, enim assumenda cum recusandae qui nemo facilis laboriosam numquam corrupti unde eligendi laudantium itaque. Est, fugit corrupti possimus itaque eligendi.</p>
+		</li>
+	</ul>
+</div>
 ```
 
 
@@ -137,4 +148,5 @@ This plugin assumes a few things so that it works properly:
 1. That you use some js to modify classes on the `<html>` element to tell if js is available. It uses the Modernizr `.no-js` / `.js` example. This is done so that the slider can be styled well when js is unavailable. See our [demo](https://github.com/mrmartineau/KOslider/blob/master/index.html#L10) for an example of this without using Modernizr.
 2. That you want resize events debounced. Included is a small script that allows resize events to be made more effecient.
 
-
+## Demo
+Clone this repo and open the `index.html` to view the demo.
