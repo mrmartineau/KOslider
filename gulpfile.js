@@ -6,8 +6,8 @@ var $           = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
-var browserify  = require('browserify');
 var uglify      = require('gulp-uglify');
+var pkg         = require('./package.json');
 
 
 var CONFIG = {
@@ -26,7 +26,16 @@ var CONFIG = {
 		'> 5%',
 		'last 2 versions',
 		'ie > 8'
-	]
+	],
+
+	// CONFIG.BANNER
+	BANNER : ['/**',
+	  ' * <%= pkg.name %> - <%= pkg.description %>',
+	  ' * @version v<%= pkg.version %>',
+	  ' * @link <%= pkg.homepage %>',
+	  ' * @license <%= pkg.license %>',
+	  ' */',
+	  ''].join('\n')
 };
 
 var jsFiles = CONFIG.JS.LIBS.concat(CONFIG.JS.FILELIST);
@@ -37,10 +46,12 @@ gulp.task('js', function() {
 		.pipe($.sourcemaps.init())
 			.pipe($.concat('jquery-KOslider.js'))
 		.pipe($.sourcemaps.write())
+		.pipe($.header(CONFIG.BANNER, { pkg : pkg } ))
 		.pipe(gulp.dest(CONFIG.DISTDIR))
 		.pipe($.size({title: 'Unminified js',gzip: true}))
 		.pipe($.uglify())
 		.pipe($.rename({suffix: '.min'}))
+		.pipe($.header(CONFIG.BANNER, { pkg : pkg } ))
 		.pipe(gulp.dest(CONFIG.DISTDIR))
 		.pipe($.size({title: 'Minified js',gzip: true}));
 });
@@ -55,12 +66,14 @@ gulp.task('styles', function () {
 			}))
 		.pipe($.sourcemaps.write())
 		.pipe($.autoprefixer({browsers: CONFIG.AUTOPREFIXER_BROWSERS}))
+		.pipe($.header(CONFIG.BANNER, { pkg : pkg } ))
 		.pipe(gulp.dest(CONFIG.DISTDIR))
 		.pipe($.size({title: 'Unminified styles',gzip: true}))
 
 		// Concatenate And Minify Styles
 		.pipe($.if('*.css', $.csso()))
 		.pipe($.rename({suffix: '.min'}))
+		.pipe($.header(CONFIG.BANNER, { pkg : pkg } ))
 		.pipe(gulp.dest(CONFIG.DISTDIR))
 		.pipe($.size({title: 'Minified styles',gzip: true}))
 		.pipe(browserSync.reload({stream:true}));

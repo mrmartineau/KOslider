@@ -1,4 +1,10 @@
 /**
+ * KOslider - KOslider is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation
+ * @version v0.5.0
+ * @link https://github.com/mrmartineau/KOslider
+ * @license MIT
+ */
+/**
  * debounce
  * @param {integer} milliseconds This param indicates the number of milliseconds
  *     to wait after the last call before calling the original function .
