@@ -1,5 +1,5 @@
 {
-  "name": "KOslider",
+  "name": "koslider",
   "title": "KOslider",
   "description": "KOslider is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation",
   "main": "dist/KOslider.js",
@@ -38,7 +38,10 @@
     "carousel",
     "slider",
     "CSS",
-    "CSS transitions"
+    "CSS transitions",
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "kickoff"
   ],
   "dependencies": {},
   "license": "MIT"

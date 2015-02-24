@@ -1,5 +1,5 @@
 /**
- * KOslider - KOslider is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation
+ * koslider - KOslider is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation
  * @version v0.5.0
  * @link https://github.com/mrmartineau/KOslider
  * @license MIT

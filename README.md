@@ -1,6 +1,24 @@
 # KOslider
 **KOslider** is a jQuery slider/carousel plugin that uses CSS3 transitions for its animation. It is named KOslider because it was initially used on a project with my [Kickoff](http://tmwagency.github.io/kickoff/) framework and uses the same [CSS class naming scheme](http://tmwagency.github.io/kickoff/learn/css.html#sts=CSS Naming scheme).
 
+## Getting the Library
+### Direct downloads
+- [Minified](https://raw.githubusercontent.com/mrmartineau/KOslider/master/dist/jquery-KOslider.min.js) (2.36 kB gzipped)
+- [Unminified](https://raw.githubusercontent.com/mrmartineau/KOslider/master/dist/jquery-KOslider.js) (11.19 kB gzipped)
+
+### Bower
+`bower install trak`
+
+### NPM
+`npm install koslider --save`
+
+## Usage
+Include **KOslider** in your JavaScript bundle or add it to your HTML page like this:
+
+```html
+<script type='application/javascript' src='/path/to/KOslider.js'></script>
+```
+
 ## Usage
 Include **KOslider** in your JavaScript bundle or add it to your HTML page like this:
 
