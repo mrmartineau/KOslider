@@ -167,4 +167,4 @@ This plugin assumes a few things so that it works properly:
 2. That you want resize events debounced. Included is a small script that allows resize events to be made more effecient.
 
 ## Demo
-Clone this repo and open the `index.html` to view the demo.
+View the demo at http://codepen.io/mrmartineau/full/qEKNxN/
